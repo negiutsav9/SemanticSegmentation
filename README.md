@@ -39,6 +39,16 @@ function returns a list of average loss incurred during training.
 
 ## Semantic Segmentation on COCO Dataset Objects
 
+The model uses COCO Train2017 dataset for training the model and COCO Val2017 dataset for
+evaluating the performance of the model. The COCO Train2017 and COCO Val2017 images and their
+respective annotations are downloaded to the working directory. Based on the given categories: dog,
+cake, and motorcycle, two dictionaries, dedicated for storing training data and validation data, are
+created which map each category to an array of image data belonging to that category. Furthermore, each
+image data stored in a triplet consisting of image tensor which is resized to 256 x 256, labels of the
+objects present in the image, and the scaled bounding box tensors of the objects present in the image.
+The function getData() is responsible for executing the above tasks and it returns the training data
+dictionary and the validation data dictionary.
+
 The semantic segmentation is conducted on Motorcycle, Dog and Cake categories of COCO
 Dataset Objects. At the start of the pipeline, the image data along with its binary mask are extracted using
 the COCO API which are resized to 256 x 256 and are stored in two dictionaries: one for training data and
